@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkbox</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background-color: indianred;
+        }
+
+        table {
+            width: 488px;
+            border: 1px solid;
+        }
+
+        tr {
+            height: 400px;
+        }
+
+        #survey-form {
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        input[type=checkbox] {
+            transform: scale(1.5);
+        }
+
+        input[type=button] {            
+            font-size: 16px;
+            border: 0.5px solid black;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var checkflag = "false";
+
+        function check(field) {
+            if (checkflag == "false") {
+                for (i = 0; i < field.length; i++) {
+                    field[i].checked = true;
+                }
+
+                checkflag = "true";
+
+                return "Uncheck All";
+
+            } else {
+                for (i = 0; i < field.length; i++) {
+                    field[i].checked = false;
+                }
+
+                checkflag = "false";
+
+                return "Check All";
+            }
+        }
+    </script>
+
+    <center>
+        <table>
+            <tr>
+                <td><br>
+                    <h1>Your Favorite Scripting Languages</h1><br>
+
+                    <form id="survey-form" name=myform action="" method=post>
+                        <input type=checkbox name=list value="1">&nbsp;&nbsp;Java<br><br>
+                        <input type=checkbox name=list value="2">&nbsp;&nbsp;JavaScript<br><br>
+                        <input type=checkbox name=list value="3">&nbsp;&nbsp;ASP<br><br>
+                        <input type=checkbox name=list value="4">&nbsp;&nbsp;HTML<br><br>
+                        <input type=checkbox name=list value="5">&nbsp;&nbsp;SQL<br><br>
+
+                        <input type=button value="Check All" onClick="this.value=check(this.form.list)"><br><br><br>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>
